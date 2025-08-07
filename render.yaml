@@ -8,8 +8,7 @@ services:
     envVars:
       - key: NEXT_PUBLIC_API_URL
         value: https://hostnetapi.onrender.com
-    # Add cache for faster rebuilds
     cacheDirectories:
       - node_modules
       - .next/cache
-    region: oregon
+    region: europe/london
