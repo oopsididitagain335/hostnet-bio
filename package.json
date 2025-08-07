@@ -25,17 +25,5 @@
   },
   "engines": {
     "node": ">=18"
-  },
-  "description": "Bio link platform for Hostnet - Powered by Next.js and hosted on Render",
-  "main": "index.js",
-  "keywords": [
-    "bio link",
-    "link in bio",
-    "nextjs",
-    "hostnet",
-    "solace",
-    "buy me a coffee"
-  ],
-  "author": "Hostnet Dev Team",
-  "license": "MIT"
+  }
 }
