@@ -31,7 +31,7 @@ const BioCard: React.FC<BioCardProps> = ({ user }) => {
 
       <div className="-mt-16 mb-6 flex justify-center">
         <img
-          src={user.avatar || `https://ui-avatars.com/api/?name=${user.username}`}
+          src={user.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.username)}`}
           alt={user.name}
           className="w-24 h-24 rounded-full border-4 border-white dark:border-gray-800 object-cover"
         />
@@ -58,7 +58,7 @@ const BioCard: React.FC<BioCardProps> = ({ user }) => {
         ))}
       </div>
 
-      {/* Buy Me a Coffee Widget - No External URL in Code */}
+      {/* Buy Me a Coffee Embed */}
       <div className="mt-6 border-t pt-6">
         <iframe
           src="https://coff.ee/solacedev/embed"
@@ -67,7 +67,15 @@ const BioCard: React.FC<BioCardProps> = ({ user }) => {
         ></iframe>
       </div>
 
-      <style jsx>{user.customCSS}</style>
+      {/* Inject custom CSS safely */}
+      {user.customCSS && (
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `/* Custom CSS for @${user.username} */\n${user.customCSS}`,
+          }}
+          id={`custom-css-${user.username}`}
+        />
+      )}
     </div>
   );
 };
