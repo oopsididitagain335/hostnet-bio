@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: bio-link
+    plan: free
+    runtime: node
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm start"
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://hostnetapi.onrender.com
+    domain: hostnet.lol  # or set in Render dashboard
+    region: oregon
